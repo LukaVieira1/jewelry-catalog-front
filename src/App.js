@@ -3,7 +3,7 @@ import { AuthProvider, RequireAuth } from "./context/auth-context";
 import Login from "./routes/Login";
 import Layout from "./components/Layout";
 import Catalog from "./routes/Catalog";
-import ProtectedPage from "./routes/ProtectedPage";
+import Admin from "./routes/Admin";
 import { Flex } from "@chakra-ui/react";
 
 function App() {
@@ -14,14 +14,15 @@ function App() {
           <Route element={<Layout />}>
             <Route path="/" element={<Catalog />} />
             <Route path="/login" element={<Login />} />
-            <Route
-              path="/protected"
+            <Route path="/admin" element={<Admin />} />
+            {/* <Route
+              path="/admin"
               element={
                 <RequireAuth>
-                  <ProtectedPage />
+                  <Admin />
                 </RequireAuth>
               }
-            />
+            /> */}
           </Route>
         </Routes>
       </Flex>
