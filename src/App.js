@@ -2,26 +2,29 @@ import { Routes, Route } from "react-router-dom";
 import { AuthProvider, RequireAuth } from "./context/auth-context";
 import Login from "./routes/Login";
 import Layout from "./components/Layout";
-import PublicPage from "./routes/PublicPage";
+import Catalog from "./routes/Catalog";
 import ProtectedPage from "./routes/ProtectedPage";
+import { Flex } from "@chakra-ui/react";
 
 function App() {
   return (
     <AuthProvider>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<PublicPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route
-            path="/protected"
-            element={
-              <RequireAuth>
-                <ProtectedPage />
-              </RequireAuth>
-            }
-          />
-        </Route>
-      </Routes>
+      <Flex direction="column" backgroundColor="white">
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Catalog />} />
+            <Route path="/login" element={<Login />} />
+            <Route
+              path="/protected"
+              element={
+                <RequireAuth>
+                  <ProtectedPage />
+                </RequireAuth>
+              }
+            />
+          </Route>
+        </Routes>
+      </Flex>
     </AuthProvider>
   );
 }

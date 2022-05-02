@@ -1,23 +1,28 @@
-import { Link, Outlet } from "react-router-dom";
-
-import AuthStatus from "./AuthStatus";
+import { Outlet } from "react-router-dom";
+import { Flex, Heading, Image } from "@chakra-ui/react";
+import headerImg from "../assets/img/header.png";
 
 function Layout() {
   return (
-    <div>
-      <AuthStatus />
-
-      <ul>
-        <li>
-          <Link to="/">Public Page</Link>
-        </li>
-        <li>
-          <Link to="/protected">Protected Page</Link>
-        </li>
-      </ul>
-
+    <>
+      <Heading
+        maxW="100%"
+        padding="0 20px 10px"
+        textAlign="center"
+        backgroundColor="#f0f0f0"
+        textColor="white"
+      >
+        <Flex justify="center">
+          <Image
+            height={"100px"}
+            borderRadius="full"
+            src={headerImg}
+            alt="Dan Abramov"
+          />
+        </Flex>
+      </Heading>
       <Outlet />
-    </div>
+    </>
   );
 }
 
