@@ -24,19 +24,12 @@ function Admin() {
     name: yup
       .string("Campo nome precisa ser um texto")
       .required("Campo nome é necessário"),
-    password: yup
-      .string("Campo senha precisa ser um texto")
-      .required("Campo senha é necessário")
-      .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,}$/,
-        "Deve conter 8 caracteres, uma letra maiúscula, uma minúscula, um caracter especial e um número"
-      ),
-    email: yup
-      .string("Campo email precisa ser um texto")
-      .required("Campo email é necessário"),
-    username: yup
-      .string("Campo usuario precisa ser um texto")
-      .required("Campo usuario é necessário"),
+    description: yup
+      .string("Campo nome precisa ser um texto")
+      .required("Campo nome é necessário"),
+    acessory: yup.required("Campo nome é necessário"),
+    quality: yup.required("Campo nome é necessário"),
+    img: yup.required("Campo nome é necessário"),
   });
 
   const {
@@ -72,7 +65,7 @@ function Admin() {
             onSubmit={handleSubmit(onSubmit)}
             mt={["32px"]}
           >
-            <FormLabel htmlFor="email">Nome</FormLabel>
+            <FormLabel htmlFor="name">Nome</FormLabel>
             <Input
               width={["100%"]}
               height={["40px"]}
