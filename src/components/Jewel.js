@@ -1,7 +1,7 @@
 import { Box, Image } from "@chakra-ui/react";
 
 const Jewel = (props) => {
-  const { imageUrl, imageAlt, name, formattedPrice, type } = props;
+  const { imageUrl, imageAlt, name, price, description } = props;
 
   return (
     <Box
@@ -15,7 +15,7 @@ const Jewel = (props) => {
       <Image
         maxHeight="300px"
         minHeight="300px"
-        src={imageUrl}
+        src={`http://localhost:5000/${imageUrl.split("\\").join("/")}`}
         alt={imageAlt}
       />
 
@@ -30,10 +30,10 @@ const Jewel = (props) => {
           {name}
         </Box>
         <Box as="span" color="gray.600" fontSize="sm">
-          {type}
+          {description}
         </Box>
 
-        <Box>{formattedPrice}</Box>
+        <Box>{price}</Box>
       </Box>
     </Box>
   );

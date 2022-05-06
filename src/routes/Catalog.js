@@ -1,89 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Jewel from "../components/Jewel";
 import { Container, Flex } from "@chakra-ui/react";
-import img from "../assets/img/jowel.jpeg";
+import { getAllJewels } from "../services/jewels.js";
 
 function Catalog() {
-  const jowels = [
-    {
-      imageUrl: img,
-      imageAlt: "Rear view of modern home with pool",
-      name: "Colar em cordão baiano",
-      type: "Banhado a ouro",
-      formattedPrice: "R$68",
-    },
-    {
-      imageUrl: img,
-      imageAlt: "Rear view of modern home with pool",
-      name: "Colar em cordão baiano",
-      type: "Banhado a ouro",
-      formattedPrice: "R$68",
-    },
-    {
-      imageUrl: img,
-      imageAlt: "Rear view of modern home with pool",
-      name: "Colar em cordão baiano",
-      type: "Banhado a ouro",
-      formattedPrice: "R$68",
-    },
-    {
-      imageUrl: img,
-      imageAlt: "Rear view of modern home with pool",
-      name: "Colar em cordão baiano",
-      type: "Banhado a ouro",
-      formattedPrice: "R$68",
-    },
+  const [jewels, setJewels] = useState([]);
 
-    {
-      imageUrl: img,
-      imageAlt: "Rear view of modern home with pool",
-      name: "Colar em cordão baiano",
-      type: "Banhado a ouro",
-      formattedPrice: "R$68",
-    },
-    {
-      imageUrl: img,
-      imageAlt: "Rear view of modern home with pool",
-      name: "Colar em cordão baiano",
-      type: "Banhado a ouro",
-      formattedPrice: "R$68",
-    },
-    {
-      imageUrl: img,
-      imageAlt: "Rear view of modern home with pool",
-      name: "Colar em cordão baiano",
-      type: "Banhado a ouro",
-      formattedPrice: "R$68",
-    },
-    {
-      imageUrl: img,
-      imageAlt: "Rear view of modern home with pool",
-      name: "Colar em cordão baiano",
-      type: "Banhado a ouro",
-      formattedPrice: "R$68",
-    },
-    {
-      imageUrl: img,
-      imageAlt: "Rear view of modern home with pool",
-      name: "Colar em cordão baiano",
-      type: "Banhado a ouro",
-      formattedPrice: "R$68",
-    },
-  ];
+  useEffect(() => {
+    try {
+      const request = async () => {
+        const response = await getAllJewels();
+        setJewels(response.data.jowels);
+      };
+      request();
+    } catch (error) {}
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
       <Container maxW="1500px">
         <Flex wrap="wrap" justifyContent="space-evenly">
-          {jowels?.map((jowel) => (
+          {jewels?.map((jewel) => (
             <Jewel
-              imageUrl={jowel.imageUrl}
-              imageAlt={jowel.imageAlt}
-              beds={jowel.beds}
-              baths={jowel.baths}
-              name={jowel.name}
-              type={jowel.type}
-              formattedPrice={jowel.formattedPrice}
+              imageUrl={jewel.img}
+              imageAlt="Jewel"
+              name={jewel.name}
+              description={jewel.description}
+              price={jewel.price}
             />
           ))}
         </Flex>
