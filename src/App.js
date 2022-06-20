@@ -14,15 +14,15 @@ function App() {
           <Route element={<Layout />}>
             <Route path="/" element={<Catalog />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/admin" element={<Admin />} />
-            {/* <Route
+            {/* <Route path="/admin" element={<Admin />} /> */}
+            <Route
               path="/admin"
               element={
                 <RequireAuth>
                   <Admin />
                 </RequireAuth>
               }
-            /> */}
+            />
           </Route>
         </Routes>
       </Flex>

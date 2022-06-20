@@ -2,4 +2,11 @@ import client from "../providers/client";
 
 export const getAllJewels = (params) => client.get("/jowels");
 
-export const postPetweet = (data) => client.post("/jowels", data);
+export const postJewel = (formData) =>
+  client.post("/jowels", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+
+export const delJewels = (id) => client.delete(`/jowels/${id}`);
