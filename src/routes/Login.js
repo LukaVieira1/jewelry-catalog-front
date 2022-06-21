@@ -1,10 +1,22 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import {
+  Button,
+  Flex,
+  FormControl,
+  FormLabel,
+  Input,
+  InputGroup,
+  InputRightElement,
+  Text,
+} from "@chakra-ui/react";
+import { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/auth-context";
 
 function Login() {
   const navigate = useNavigate();
   const location = useLocation();
   const { signin } = useAuth();
+  const [isLoading, setIsLoading] = useState(false);
 
   const from = location.state?.from?.pathname || "/";
 
@@ -20,19 +32,42 @@ function Login() {
   }
 
   return (
-    <div>
-      <p>Você precisa estar logado para ver a página {from}</p>
-
-      <form onSubmit={handleSubmit}>
-        <label>
-          email: <input name="email" type="text" />
-        </label>{" "}
-        <label>
-          senha: <input name="password" type="password" />
-        </label>{" "}
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <Flex alignSelf={"center"}>
+      <FormControl as={"form"} onSubmit={handleSubmit} mt={["32px"]}>
+        <FormLabel htmlFor="email">Email</FormLabel>
+        <Input
+          width={["100%"]}
+          height={["40px"]}
+          name="email"
+          type="email"
+          placeholder="Email"
+        />
+        <Flex justify={["space-between"]}>
+          <FormLabel mt="32px" htmlFor="senha">
+            Senha
+          </FormLabel>
+        </Flex>
+        <InputGroup>
+          <Input
+            width={["100%"]}
+            height={["40px"]}
+            name="password"
+            type="password"
+            placeholder="Senha"
+          />
+        </InputGroup>
+        <Button
+          isLoading={isLoading}
+          variant="solid"
+          mt="40px"
+          width={["100%"]}
+          height={["40px"]}
+          type="submit"
+        >
+          Entrar
+        </Button>
+      </FormControl>
+    </Flex>
   );
 }
 
