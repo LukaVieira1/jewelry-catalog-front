@@ -12,6 +12,8 @@ import {
 } from "@chakra-ui/react";
 import { delJewels, getAllJewels } from "../services/jewels.js";
 import { SearchIcon } from "@chakra-ui/icons";
+import { useAuth } from "../context/auth-context";
+import { useNavigate } from "react-router-dom";
 
 function Catalog() {
   const [jewels, setJewels] = useState([]);
@@ -20,6 +22,9 @@ function Catalog() {
   const [filterValue, setFilterValue] = useState("");
   const [fieldReset, setFieldReset] = useState(false);
   const [inputValue, setInputValue] = useState("");
+
+  let auth = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     try {
@@ -58,6 +63,14 @@ function Catalog() {
     <>
       <Container maxW="1500px">
         <Flex mt={"20px"} justify="flex-end" gap="10px" alignItems={"center"}>
+          {auth.user && (
+            <Button
+              onClick={() => navigate("/admin", { replace: true })}
+              size="sm"
+            >
+              Adicionar joia
+            </Button>
+          )}
           <FormControl
             key={fieldReset}
             width={"20%"}

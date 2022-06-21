@@ -1,8 +1,9 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { Flex, Heading, Image } from "@chakra-ui/react";
 import headerImg from "../assets/img/header.png";
 
 function Layout() {
+  const navigate = useNavigate();
   return (
     <>
       <Heading
@@ -18,6 +19,7 @@ function Layout() {
             borderRadius="full"
             src={headerImg}
             alt="Dan Abramov"
+            onClick={() => navigate("/", { replace: true })}
           />
         </Flex>
       </Heading>
