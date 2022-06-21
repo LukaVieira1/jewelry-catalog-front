@@ -51,6 +51,7 @@ function Admin() {
 
     try {
       await postJewel(formData);
+      event.target.reset();
     } catch (error) {}
   }
 
@@ -148,7 +149,7 @@ function Admin() {
               >
                 <option>Prata 925</option>
                 <option>Banhado a prata</option>
-                <option>Banhado a Ouro</option>
+                <option>Banhado a ouro</option>
               </Select>
             </FormControl>
             <Text fontSize={["10px"]} mt={["4px"]}>
