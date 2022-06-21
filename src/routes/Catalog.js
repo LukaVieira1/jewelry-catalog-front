@@ -54,7 +54,7 @@ function Catalog() {
 
   const handleRemoveJewel = async (jowel) => {
     try {
-      await delJewels(jowel.id);
+      await delJewels(jowel.id, jowel.imageUrl);
       setJewelsUpdate(!jewelsUpdate);
     } catch (error) {}
   };

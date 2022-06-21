@@ -38,7 +38,9 @@ const Jewel = (props) => {
       <Image
         maxHeight="300px"
         minHeight="300px"
-        src={`http://localhost:4000/${imageUrl.split("\\").join("/")}`}
+        src={`https://res.cloudinary.com/dm2qzifkf/image/upload/v1655834644/${imageUrl
+          .split("\\")
+          .join("/")}.jpg`}
         alt={imageAlt}
       />
 
@@ -81,6 +83,7 @@ const Jewel = (props) => {
               onClick={() => {
                 handleRemoveJewel({
                   id,
+                  imageUrl,
                 });
               }}
             >

@@ -9,4 +9,5 @@ export const postJewel = (formData) =>
     },
   });
 
-export const delJewels = (id) => client.delete(`/jowels/${id}`);
+export const delJewels = (id, imgUrl) =>
+  client.delete(`/jowels/${id}?img=${imgUrl}`);
