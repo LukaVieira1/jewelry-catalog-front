@@ -7,16 +7,13 @@ import {
   InputGroup,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/auth-context";
 
 function Login() {
   const navigate = useNavigate();
-  const location = useLocation();
   const { signin } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
-
-  const from = location.state?.from?.pathname || "/";
 
   async function handleSubmit(event) {
     setIsLoading(true);
@@ -26,9 +23,11 @@ function Login() {
     const email = formData.get("email");
     const password = formData.get("password");
 
-    await signin({ email, password });
-    setIsLoading(false);
-    navigate(from, { replace: true });
+    try {
+      await signin({ email, password });
+      setIsLoading(false);
+      navigate("/", { replace: true });
+    } catch (error) {}
   }
 
   return (
