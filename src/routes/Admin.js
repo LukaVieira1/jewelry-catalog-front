@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+// import { yupResolver } from "@hookform/resolvers/yup";
+// import * as yup from "yup";
 import {
   Button,
   Flex,
@@ -8,18 +8,18 @@ import {
   FormLabel,
   Input,
   Text,
-  useToast,
+  // useToast,
   Container,
   Select,
 } from "@chakra-ui/react";
-import { useState } from "react";
-import { Link as ReachLink, useNavigate } from "react-router-dom";
+// import { useState } from "react";
+// import { Link as ReachLink, useNavigate } from "react-router-dom";
 import { postJewel } from "../services/jewels";
 
 function Admin() {
-  const [show, setShow] = useState(false);
-  const navigate = useNavigate();
-  const toast = useToast();
+  // const [show, setShow] = useState(false);
+  // const navigate = useNavigate();
+  // const toast = useToast();
 
   // let schema = yup.object().shape({
   //   name: yup.required("Campo nome é necessário"),

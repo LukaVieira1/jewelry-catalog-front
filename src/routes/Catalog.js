@@ -50,6 +50,7 @@ function Catalog() {
           jewel.quality.toLowerCase().includes(lowerInputFilter)
       )
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterValue]);
 
   const handleRemoveJewel = async (jowel) => {
