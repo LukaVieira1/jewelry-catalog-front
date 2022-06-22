@@ -63,7 +63,13 @@ function Catalog() {
   return (
     <>
       <Container maxW="1500px">
-        <Flex mt={"20px"} justify="flex-end" gap="10px" alignItems={"center"}>
+        <Flex
+          mt={"20px"}
+          justify={["center", "flex-end"]}
+          direction={["column", "row"]}
+          gap="10px"
+          alignItems={"center"}
+        >
           {auth.user && (
             <Button
               onClick={() => navigate("/admin", { replace: true })}
@@ -74,7 +80,7 @@ function Catalog() {
           )}
           <FormControl
             key={fieldReset}
-            width={"20%"}
+            width={["90%", "20%"]}
             onChange={(event) => setFilterValue(event.target.value)}
           >
             <Select
@@ -89,7 +95,7 @@ function Catalog() {
           </FormControl>
           <FormControl
             focusBorderColor="#e0a6ae"
-            width={"20%"}
+            width={["90%", "20%"]}
             onChange={(event) => setFilterValue(event.target.value)}
           >
             <Select
@@ -105,7 +111,7 @@ function Catalog() {
               <option>Tornozeleira</option>
             </Select>
           </FormControl>
-          <InputGroup width={"20%"}>
+          <InputGroup width={["90%", "20%"]}>
             <InputLeftElement
               pointerEvents="none"
               children={<SearchIcon color="gray.300" />}
