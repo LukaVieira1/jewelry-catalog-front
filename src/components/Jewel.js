@@ -40,7 +40,7 @@ const Jewel = (props) => {
         height="300px"
         src={`https://res.cloudinary.com/dm2qzifkf/image/upload/v1655834644/${imageUrl
           .split("\\")
-          .join("/")}.jpg`}
+          .join("/")}.jpeg`}
         alt={imageAlt}
       />
 
