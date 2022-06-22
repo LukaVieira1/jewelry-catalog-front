@@ -36,8 +36,8 @@ const Jewel = (props) => {
       backgroundColor="#e0a6ae"
     >
       <Image
-        maxHeight="300px"
-        minHeight="300px"
+        width="300px"
+        height="300px"
         src={`https://res.cloudinary.com/dm2qzifkf/image/upload/v1655834644/${imageUrl
           .split("\\")
           .join("/")}.jpg`}
@@ -61,12 +61,12 @@ const Jewel = (props) => {
             </Box>
             <Box>R${price}</Box>
           </Flex>
-          {auth.user && (
-            <Button onClick={onOpen} size="sm">
-              Remover joia
-            </Button>
-          )}
         </Flex>
+        {auth.user && (
+          <Button onClick={onOpen} size="sm">
+            Remover joia
+          </Button>
+        )}
       </Box>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
