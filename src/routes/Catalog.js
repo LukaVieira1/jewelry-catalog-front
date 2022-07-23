@@ -14,6 +14,8 @@ import { delJewels, getAllJewels } from "../services/jewels.js";
 import { SearchIcon } from "@chakra-ui/icons";
 import { useAuth } from "../context/auth-context";
 import { useNavigate } from "react-router-dom";
+import FloatingWhatsApp from "react-floating-whatsapp";
+import icon from "../assets/img/icon.png";
 
 function Catalog() {
   const [jewels, setJewels] = useState([]);
@@ -78,7 +80,7 @@ function Catalog() {
               Adicionar joia
             </Button>
           )}
-          <FormControl
+          {/* <FormControl
             key={fieldReset}
             width={["90%", "20%"]}
             onChange={(event) => setFilterValue(event.target.value)}
@@ -92,8 +94,8 @@ function Catalog() {
               <option>Banhado a prata</option>
               <option>Banhado a ouro</option>
             </Select>
-          </FormControl>
-          <FormControl
+          </FormControl> */}
+          {/* <FormControl
             focusBorderColor="#e0a6ae"
             width={["90%", "20%"]}
             onChange={(event) => setFilterValue(event.target.value)}
@@ -110,7 +112,7 @@ function Catalog() {
               <option>Pulseira</option>
               <option>Tornozeleira</option>
             </Select>
-          </FormControl>
+          </FormControl> */}
           <InputGroup width={["90%", "20%"]}>
             <InputLeftElement
               pointerEvents="none"
@@ -168,6 +170,14 @@ function Catalog() {
               ))}
         </Flex>
       </Container>
+      <FloatingWhatsApp
+        phoneNumber="53984577762"
+        height={"auto"}
+        accountName="DonnaMi Joias e Semijoias"
+        avatar={icon}
+        statusMessage="Normalmente responde em até 1 hora."
+        chatMessage={`Olá, bem bem vindo ao catálogo DonnaMi!\nSobre qual peça gostaria de saber mais?`}
+      />
     </>
   );
 }
