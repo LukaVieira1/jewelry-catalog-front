@@ -34,3 +34,7 @@ Para gerar a aplicação que ficará hospedada no ambiente de produção rode `y
 `services`: pasta com arquivos que exportam funcões externas a aplicação como requisições.
 
 `routes`: contém as rotas da aplicação.
+
+## HOST
+
+https://vercel.com/
